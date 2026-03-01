@@ -1,0 +1,22 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<h2> Employee Details</h2>
+    
+    <form action="{% url 'emp_add' %}" method="POST">
+         {% csrf_token %}
+
+        
+           Name: <input type="text" name="name"><br><br>
+        
+           Email: <input type="text" name="email"><br><br>
+        
+           Salary: <input type="text" name="salary"><br><br>
+        
+           Department: <input type="text" name="department"><br><br>
+
+        <button type="submit">ADD</button>
+
+
+    </form>
+{% endblock %}
