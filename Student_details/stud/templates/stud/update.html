@@ -1,0 +1,15 @@
+{% extends "stud/master.html" %}
+   
+  {% block title %} Update Details {% endblock %}
+
+{% block content %}
+<H2>Update Details</H2>
+<form method="POST">
+    {% csrf_token %}
+    Name:<input type="text" name="name" value="{{ student.name }}"><br><br>
+    Roll no.:<input type="text" name="rollno" value="{{ student.rollno }}"><br><br>
+    Marks:<input type="text" name="marks" value="{{ student.marks }}"><br><br>
+    
+    <button type="submit">Update</button>
+</form>
+{% endblock %}
