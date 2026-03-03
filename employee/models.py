@@ -7,4 +7,7 @@ class Employee(models.Model):
     salary=models.IntegerField()
     department= models.CharField(max_length=100)
 
+def __str__(self):
+    return f"{self.name}{self.email}{self.salary}{self.department}"
+
     

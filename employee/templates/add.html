@@ -1,7 +1,7 @@
 {% extends 'master.html' %}
 
 {% block content %}
-<h2> Employee Details</h2>
+<h2> Employee Add Details</h2>
     
     <form action="{% url 'emp_add' %}" method="POST">
          {% csrf_token %}

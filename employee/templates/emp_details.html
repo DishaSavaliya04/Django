@@ -6,8 +6,25 @@
 
      <a href="{% url 'emp_add' %}"></a><br>
 
+<form method="POST" action="{% url 'emp_action' %}" style="width:60%;">
+    {% csrf_token %}
+
+    Name <input type="text" name="name"><br><br>
+    Email <input type="text" name="email" ><br><br>
+    Salary <input type="text" name="salary" ><br><br>
+    Department <input type="text" name="department"><br><br>
+    
+    <button type="submit" name="action" value="update" 
+        style="background:green;color:white;">Update</button>
+
+    <button type="submit" name="action" value="delete" 
+        style="background:red;color:white;"> Delete All </button>
+
+    <br><br>
+
 <table border="=1">
     <tr>
+        <th>select</th>
         <th>Name</th>
         <th>Email</th>
         <th>Salary</th>
@@ -17,6 +34,7 @@
 
      {% for x in emp %}
     <tr>
+        <td><input type="checkbox" name="selected" value="{{ x.id }}"></td>
         <td>{{x.name}}</td>
         <td>{{x.email}}</td>
         <td>{{x.salary}}</td>
@@ -24,14 +42,16 @@
     
         <td>
          <a href="{%url 'emp_update' x.id %}">
-              <button type="button">Update</button>
+              <button type="button"style="background:green;color:white" >Update</button>
          </a>
          <a href="{%url 'emp_delete' x.id %}">
-               <button type="button">Delete</button>
+               <button type="button"style="background:red;color:white">Delete</button>
          </a>
         </td> 
     </tr>
+    
     {% endfor %}
 </table>
 
 {% endblock %}
+</form>
